@@ -1,0 +1,26 @@
+options -MultiViews
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+
+RewriteRule ^$ /en/%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/manageuser$ manageuser.php?la=$1%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/managelanguage$ managelanguage.php?la=$1%{QUERY_STRING} [L,QSA]
+
+RewriteRule ^([a-z]{2})/project/$ project.php?la=$1%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/project/([0-9]{1,5})/steps/([0-9]{1,5})/([0-9]{1,7})/([0-9]{1,7})/$ project.php?la=$1&id=$2&p=steps&n=$3&var1=$4&var2=$5%{QUERY_STRING}  [L,QSA]
+RewriteRule ^([a-z]{2})/project/([0-9]{1,5})/steps/([0-9]{1,5})/([0-9]{1,7})/$ project.php?la=$1&id=$2&p=steps&n=$3&var1=$4%{QUERY_STRING}  [L,QSA]
+RewriteRule ^([a-z]{2})/project/([0-9]{1,5})/steps/([0-9]{1,5})/$ project.php?la=$1&id=$2&p=steps&n=$3%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/project/([0-9]{1,5})/(.*)/$ project.php?la=$1&id=$2&p=$3%{QUERY_STRING}  [L,QSA]
+RewriteRule ^([a-z]{2})/project/([0-9]{1,5})/$ project.php?la=$1&id=$2%{QUERY_STRING}  [L,QSA]
+RewriteRule ^([a-z]{2})/link/([0-9]+)-(.*)/([0-9]+)/([0-9]+)/$ link.php?la=$1&id=$2&ln=$3&criterion=$4&investment=$5%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/link/([0-9]+)-(.*)/$ link.php?la=$1&id=$2&ln=$3%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/account/(.*)$ account.php?la=$1&p=$2%{QUERY_STRING} [L,QSA]
+
+RewriteRule ^([a-z]{2})/translate/([a-z]{2})/([a-z]{2})/([0-9]{1,3})/(.*) translate.php?la=$1&p=translate&lafrom=$2&lato=$3&npage=$4&find=$5%{QUERY_STRING} [L,QSA]
+
+RewriteRule ^([a-z]{2})/translate/([0-9]{4,5})/([a-z]{2})/([a-z]{2})/$ translate.php?la=$1&p=edit&edid=$2&lafrom=$3&lato=$4%{QUERY_STRING} [L,QSA]
+RewriteRule ^([a-z]{2})/(.*)$ $2?la=$1%{QUERY_STRING} [L,QSA]
+
+ErrorDocument 404 /dessi/en/404.php
