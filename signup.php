@@ -118,23 +118,23 @@ if($register) {
 	$info["robots"]=array("index"=>false,"follow"=>false,"archive"=>false);
 
 	if($register && !$err)
-		echo "<meta http-equiv='refresh' content='5; URL=".SITEISO."login.php'>";
+		echo "<meta http-equiv='refresh' content='5; URL=".SITEISO."'>";
 /*------------------------------------*/
 
 //Require the html head
 require(SITEHTML."comp/html-head.php");
 ?>
-<div class='main'><div class="lftcol"></div><div class="midcol2"><div id="content">
+<div class='main'><div class="lftcol"></div><div class="midcol2"><div id="content" class="content">
 <?php
-	echo '<h1>'.$lingual->get_text(2400).'</h1>';
-	echo '<p>'.$lingual->get_text(2401).'</p>';
-
-	echo '</div></div><div id="signup" class="rgtcol2">';
-
 	if($register && !$err) {
 		echo '<h1>'.$lingual->get_text(2468).'</h1>';
-		echo '<p>'.$lingual->get_text(2469).' <a href="'.SITEISO.'login.php">'.$lingual->get_text(2471).'</a> '.$lingual->get_text(2470).'</p>';
+		echo '<p>'.$lingual->get_text(2469).' <a href="'.SITEISO.'">'.$lingual->get_text(2471).'</a> '.$lingual->get_text(2470).'</p></div></div>';
 	} else {
+		echo '<h1>'.$lingual->get_text(2400).'</h1>';
+		echo '<p>'.$lingual->get_text(2401).'</p>';
+
+		echo '</div></div><div id="signup" class="rgtcol2">';
+
 ?>
 <script type="text/javascript"> var RecaptchaOptions = { theme : 'white' };</script>
 <form method='post' action='<?= SITEISO?>signup.php' id="signup"class='airform stanform'>
