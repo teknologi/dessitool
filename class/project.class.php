@@ -47,13 +47,19 @@ class Project{
 
     public function del_project($id, $name) {
         $this->set_current($id);
-        $loopmod = $this->load_module(21);
-        $loopmod->reset_step();
 
-        $loopmod = $this->load_module(24);
-        $loopmod->reset_step();
+        $qry = "SELECT id, module_id from steps WHERE template_id = 1 AND required = 1";
+        $arr = array();
 
-        $qry = sprintf('UPDATE projects SET owner=%d WHERE owner = %d AND id = %d AND name = "%s";',
+        $res = $this->db->query($qry);
+        if($res && $res->num_rows) {
+            while($tmp = $res->fetch_object()) {
+                $loopmod = $this->load_module($tmp->id);
+                $loopmod->reset_step();
+            }
+        }
+
+        $qry = sprintf('DELETE FROM projects WHERE owner = %d AND id = %d AND name = "%s";',
             0,
             $this->user_id,
             (int)$id,

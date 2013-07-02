@@ -41,6 +41,10 @@ class mod_8 extends Module {
         echo "\n".'});'."\n".'</script>'."\n";
     }
 
+    public function reset_step() {
+
+    }
+
     public function save() {
         if($_POST["save"] == "Save") {
             $this->set_status(1);

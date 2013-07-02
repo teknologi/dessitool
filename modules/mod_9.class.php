@@ -94,6 +94,10 @@ class mod_9 extends Module {
         }
     }
 
+    public function reset_step() {
+
+    }
+
     public function save() {
 
     }

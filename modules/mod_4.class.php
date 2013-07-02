@@ -35,22 +35,13 @@ class mod_4 extends Module {
         } else {
             echo '<p>No investment found</p>';
         }
-/*
-        $qry = "SELECT dimension as name FROM dessi_dimensions;";
-        $res = $this->db->query($qry);
-        if($res && $res->num_rows) {
-            while($dimension = $res->fetch_object()) {
-                echo '<tr><td><input type="checkbox" name="active" /></td><td>Temp name</td></tr>';
-
-            }
-            echo "</table>";
-//            echo '<div><span>with selcted </span><a href="#" id="deletemember"> delete </a> <a href="#" id="editmember"> edit </a></div>';
-//            echo '<a href="#" id="newmember">Add new member</a>';
-
-        }
-*/
 
     }
+
+    public function reset_step() {
+
+    }
+
     public function save() {
 
     }

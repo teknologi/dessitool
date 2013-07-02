@@ -142,6 +142,10 @@ class mod_6 extends Module {
         }
     }
 
+    public function reset_step() {
+
+    }
+
     public function report(){
         return "";
     }
